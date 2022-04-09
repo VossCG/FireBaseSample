@@ -26,16 +26,6 @@ class SignUpFragment : BaseFragment<SingupfragmentBinding>(SingupfragmentBinding
         }
     }
 
-//
-//    private fun checkLogin() {
-//        val user = mAuth.currentUser
-//        Log.d("Login", user.toString())
-//        if (user != null && user.isEmailVerified) {
-//            Toast.makeText(this.context, "已有登入紀錄", Toast.LENGTH_SHORT).show()
-//            navController.navigate(R.id.action_loginFragment_to_homeFragment)
-//        }
-//    }
-
     private fun getInputFromEditText(): Pair<String, String>? {
         val email = binding.accountRegisterEdittext.text.toString()
         val password = binding.passwordRegisterEdittext.text.toString()
