@@ -6,6 +6,8 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.navigateUp
 import com.google.firebase.auth.FirebaseAuth
@@ -24,6 +26,7 @@ class SignUpFragment : BaseFragment<SingupfragmentBinding>(SingupfragmentBinding
             else Toast.makeText(this.context, "Please filled out the fields", Toast.LENGTH_SHORT)
                 .show()
         }
+
     }
 
     private fun getInputFromEditText(): Pair<String, String>? {
@@ -45,7 +48,9 @@ class SignUpFragment : BaseFragment<SingupfragmentBinding>(SingupfragmentBinding
                     .setPositiveButton("是,現在進行") { _, _ ->
                         sendVerifiedEmail()
                         navController.navigate(R.id.action_signUpFragment_to_loginFragment)
-                    }.setNegativeButton("否,稍後再說", null)
+                    }.setNegativeButton("否,稍後再說") { _, _ ->
+                        navController.navigateUp()
+                    }
                     .show()
             } else Toast.makeText(this.context, it.exception?.message, Toast.LENGTH_SHORT).show()
         }

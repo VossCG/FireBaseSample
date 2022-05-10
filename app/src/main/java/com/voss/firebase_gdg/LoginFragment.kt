@@ -18,7 +18,6 @@ class LoginFragment : BaseFragment<LoginfragmentBinding>(LoginfragmentBinding::i
     override fun onStart() {
         super.onStart()
         checkLogin()
-        Log.d("LoginFragment","user:${mAuth.currentUser} verified:${mAuth.currentUser?.isEmailVerified}")
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
